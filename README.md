@@ -1,4 +1,4 @@
 http-post-logging
 =================
 
-Simple HTTP POST endpoint logging delivery start-end times
+DataSift HTTP POST consumer endpoint logging response times.
