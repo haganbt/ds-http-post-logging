@@ -1,4 +1,4 @@
-ds-http-post-logging
-====================
+http-post-logging
+=================
 
-Test app to measure the response time of a DataSift HTTP delivery.
+Simple HTTP POST endpoint logging delivery start-end times
