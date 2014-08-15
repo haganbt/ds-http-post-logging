@@ -16,16 +16,16 @@ describe('#REST API', function() {
     });
 
     it('- /DATA testing a successful request', function(done) {
-
         request.post('http://localhost:8080/api/data/')
-            //.set('Content-Type', 'application/x-www-form-urlencoded')
             .set('X-DataSift-ID', 'foo')
             .send(text)
             .end(function(err, res){
                 expect(res).to.exist;
                 should.not.exist(err);
                 res.should.have.status(200);
-                res.body.should.include({"success": "true"});
+                res.body.should.eql({
+                    "success": true
+                });
                 done();
             });
     });
