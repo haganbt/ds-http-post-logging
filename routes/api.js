@@ -9,7 +9,7 @@ router.post('/data', function(req, res) {
     console.log("Timestamp: "+timeStamp());
     console.log("Remaining Bytes: " +  bytesToSize(req.headers['x-datasift-remaining-bytes']));
     console.log("Content Length: " + bytesToSize(req.headers['content-length']));
-    console.log("Subscription Id: " + bytesToSize(req.headers['X-Datasift-Id']));
+    console.log("Subscription Id: " + req.headers['X-Datasift-Id']);
     console.log("Encoding: " + req.headers['content-encoding']);
     console.log("Host: " + req.headers['host']);
 
