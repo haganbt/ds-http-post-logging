@@ -10,22 +10,20 @@ router.post('/data', function(req, res) {
     console.log("Remaining Bytes: " +  bytesToSize(req.headers['x-datasift-remaining-bytes']));
     console.log("Content Length: " + bytesToSize(req.headers['content-length']));
     console.log("Subscription Id: " + bytesToSize(req.headers['X-Datasift-Id']));
-    console.log(req.headers);
-
 
     var subId = req.headers['x-datasift-id'] || 'validate';
     fs.writeFileSync('./data/' + subId + '.txt', req.rawBody);
 
     res.json({"success": true})
-
     next();
-
 });
 
 module.exports = router;
 
-
-
+/**
+ * bytesToSize
+ * @type {qfloat}
+ */
 function bytesToSize(bytes) {
     var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
     if (bytes == 0) return 'n/a';
@@ -34,12 +32,10 @@ function bytesToSize(bytes) {
     return (bytes / Math.pow(1024, i)).toFixed(1) + ' ' + sizes[i];
 };
 
-
 /**
  * Return a timestamp with the format "m/d/yy h:MM:ss TT"
  * @type {Date}
  */
-
 function timeStamp() {
 // Create a date object with the current time
     var now = new Date();
